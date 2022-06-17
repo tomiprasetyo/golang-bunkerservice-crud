@@ -12,7 +12,7 @@ var (
 
 // buat koneksi ke database
 func Connect() {
-	d, err := gorm.Open("mysql", "root:@tcp(localhost:3306)/go_bunkerservice_crud?charset=utf8&parseTime=true&loc=local")
+	d, err := gorm.Open("mysql", "root:@tcp(localhost:3306)/go_bunkerservice_crud?charset=utf8&parseTime=true")
 	if err != nil {
 		panic(err)
 	}

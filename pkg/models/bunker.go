@@ -9,7 +9,6 @@ var db *gorm.DB
 
 type Bunker struct {
 	gorm.Model
-	ID             string `gormjson:"id"`
 	NoSO           string `json:"noSO"`
 	NamaPerusahaan string `json:"namaPerusahaan"`
 	NamaKapal      string `json:"namaKapal"`

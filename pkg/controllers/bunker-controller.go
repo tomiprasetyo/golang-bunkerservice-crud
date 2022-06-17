@@ -68,6 +68,7 @@ func DeleteBunker(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 }
 
+// mengupdate data bunker yang ada di database
 func UpdateBunker(w http.ResponseWriter, r *http.Request) {
 	var updateBunker = &models.Bunker{}
 	utils.ParseBody(r, updateBunker)
