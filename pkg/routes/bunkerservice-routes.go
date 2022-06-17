@@ -9,7 +9,7 @@ import (
 // anonymous function
 var RegisterBunkerRoutes = func(r *mux.Router) {
 	r.HandleFunc("/bunker/", controllers.CreateBunker).Methods("POST")
-	r.HandleFunc("/bunker/", controllers.GetAllBunker).Methods("GET")
+	r.HandleFunc("/bunker/", controllers.GetBunker).Methods("GET")
 	r.HandleFunc("/bunker/{bunkerId}", controllers.GetBunkerById).Methods("GET")
 	r.HandleFunc("/bunker/{bunkerId}", controllers.UpdateBunker).Methods("PUT")
 	r.HandleFunc("/bunker/{bunkerId}", controllers.DeleteBunker).Methods("DELETE")

@@ -9,14 +9,13 @@ var db *gorm.DB
 
 type Bunker struct {
 	gorm.Model
-	ID             int    `gormjson:"id"`
+	ID             string `gormjson:"id"`
 	NoSO           string `json:"noSO"`
 	NamaPerusahaan string `json:"namaPerusahaan"`
 	NamaKapal      string `json:"namaKapal"`
-	Quantity       string `json:"quantity"`
 	Product        string `json:"product"`
+	Quantity       string `json:"quantity"`
 	Pelabuhan      string `json:"pelabuhan"`
-	Completed      bool   `json:"completed"`
 }
 
 // inisialisasi database dan auto migrasi ke mysql
@@ -26,7 +25,7 @@ func init() {
 	db.AutoMigrate(&Bunker{})
 }
 
-// method membuat data bunker
+// method membuat data bunker di database
 func (b *Bunker) CreateBunker() *Bunker {
 	db.NewRecord(b)
 	db.Create(&b)
@@ -47,7 +46,7 @@ func GetBunkerById(Id int64) (*Bunker, *gorm.DB) {
 	return &getBunker, db
 }
 
-// method menghapus data bunker
+// method menghapus data bunker yang ada di database
 func DeleteBunker(ID int64) Bunker {
 	var bunker Bunker
 	db.Where("ID=?", ID).Delete(bunker)
